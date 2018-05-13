@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>迭代器模式</title>
+</head>
+<body>
+
+</body>
+<script>
+    var each = function (arr, callback) {
+        for (var i = 0, l = arr.length; i < l; i++) {
+            callback.call(arr[i], i, arr[i])
+        }
+    }
+
+
+    each(['a', 'b', 'c'], function (index, value) {
+        console.log(index + " " + value)
+        console.log(this)
+    })
+</script>
+</html>

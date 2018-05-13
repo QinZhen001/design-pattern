@@ -5,6 +5,71 @@
   <title>代理模式</title>
 </head>
 <body>
+代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问
 
 </body>
+<script>
+    //小明送花
+    //不使用代理模式
+    //    var Flower = function () {
+    //
+    //    }
+    //    var xiaoming = {
+    //        sendFlower: function (target) {
+    //            var floewr = new Flower()
+    //            target.receiveFlower(flower)
+    //        }
+    //    }
+    //    var A = {
+    //        receiveFlower: function (flower) {
+    //            console.log('收到花 ' + flower)
+    //        }
+    //    }
+    //    xiaoming.sendFlower(A)
+</script>
+<script>
+    //引入代理模式
+    var Flower = function () {
+
+    }
+
+    var xiaoming = {
+        sendFlower: function (target) {
+            var flower = new Flower()
+            target.receiveFlower(flower)
+        }
+    }
+
+    var B = {
+        reveiveFlower: function (flower) {
+            A.receiveFlower(flower)
+        }
+    }
+
+    var A = {
+        receiveFlower: function (flower) {
+            console.log('收到花 ' + flower)
+        }
+    }
+
+    xiaoming.sendFlower(B)
+</script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
