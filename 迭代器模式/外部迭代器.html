@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>外部迭代器</title>
+</head>
+<body>
+外部迭代器必须显式地请求迭代下一个元素 <br>
+外部迭代器增加了一些调用复杂度，但也增强了迭代器的灵活性，我们可以手工控制迭代的过程或顺序
+</body>
+<script>
+    var Iterator = function (obj) {
+        var current = 0
+
+        var next = function () {
+            current += 1
+        }
+
+        var isDone = function () {
+            return current >= obj.length
+        }
+
+        var getCurrItem = function () {
+            return obj[current]
+        }
+
+        return {
+            next: next,
+            isDone: isDone,
+            getCurrItem: getCurrItem
+        }
+    }
+
+    var compare = function (iterator1, iterator2) {
+        while (!iterator1.isDone() && !iterator2.isDone()) {
+            if (iterator1.getCurrItem() !== iterator2.getCurrItem()) {
+                throw new Error('iterator1和iterator2不相等')
+            }
+            iterator1.next()
+            iterator2.next()
+        }
+        console.log('iterator1和iterator2相等')
+    }
+
+    var iterator1 = Iterator([1, 2, 3, 4])
+    var iterator2 = Iterator([1, 2, 3, 4])
+
+
+    compare(iterator1, iterator2)
+</script>
+</html>
