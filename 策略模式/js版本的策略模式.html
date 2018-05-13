@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>js版本的策略模式</title>
+</head>
+<body>
+在js中，函数也是对象，所以更简单的和直接的做法是把strategy直接定义为函数 <br>
+在函数作为一等对象的语言中，策略模式是隐形的
+</body>
+<script>
+    var strategies = {
+        'S': function (salary) {
+            return salary * 4
+        },
+        'A': function (salary) {
+            return salary * 3
+        },
+        'B': function (salary) {
+            return salary * 2
+        }
+    }
+
+    var calculateBonus = function (level, salary) {
+        return strategies[level](salary)
+    }
+
+    console.log(calculateBonus('S', 1000))
+
+</script>
+</html>

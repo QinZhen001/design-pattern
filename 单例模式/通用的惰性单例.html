@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>通用的惰性单例</title>
+  <style type="text/css">
+    .div1 {
+      width: 200px;
+      height: 200px;
+      background: rebeccapurple;
+    }
+  </style>
+</head>
+<body>
+<div class="div1"></div>
+</body>
+<script>
+  //用到了高阶函数
+    var getSingle = function (fn) {
+        var result
+        return function () {
+            return result || (result = fn.apply(this, arguments))
+        }
+    }
+
+
+    //例子
+
+    var bindEvent = getSingle(function () {
+        document.getElementsByClassName('div1')[0].addEventListener('click', function () {
+            console.log('click')
+        })
+        //return true这个很重要(相当于fn一定要有一个返回值，这样下次，result就有值了，可以直接返回result了)
+        return true
+    })
+
+    var render = function () {
+        console.log('开始渲染')
+        bindEvent()
+    }
+
+    render()
+    render()
+    render()
+</script>
+</html>

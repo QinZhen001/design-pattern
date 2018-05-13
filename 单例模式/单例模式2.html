@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>单例模式</title>
+</head>
+<body>
+
+</body>
+<script>
+    var Singleton = function (name) {
+        this.name = name
+    }
+    Singleton.prototype.getName = function () {
+        return this.name
+    }
+
+    Singleton.getInstance = (function () {
+        var instance = null
+        return function (name) {
+            if (!instance) {
+                instance = new Singleton(name)
+            }
+            return instance
+        }
+    })()
+
+    var a = Singleton.getInstance('aaa')
+    var b = Singleton.getInstance('bbb')
+
+    console.log(a === b)
+
+
+</script>
+</html>
