@@ -34,7 +34,57 @@
         this.pourInCup()
         this.addCondiments()
     }
+    var Coffee = function () {
 
+    }
+    Coffee.prototype = new Beverage()
+    Coffee.prototype.brew = function () {
+        console.log('用沸水冲泡咖啡')
+    }
+    Coffee.prototype.pourInCup = function () {
+        console.log('把咖啡倒进被子')
+    }
+    Coffee.prototype.addCondiments = function () {
+        console.log('加糖和牛奶')
+    }
+    var Coffee = new Coffee()
+    Coffee.init()
+
+
+    //这里的模板方法是Beverage.prototype.init
+    //因为该方法中封装了子类的算法框架，它作为一个算法的模板，指导子类以何种顺序去执行哪些方法
+
+
+    //js并没有从语法层面上提供对抽象类的支持
+    //抽象类的第一个作用是隐藏对象的具体类型
+    //由于js是一门‘类型模糊’的语言，所以隐藏对象的类型在js中并不重要
 
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
