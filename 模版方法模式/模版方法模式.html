@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>模版方法模式</title>
+</head>
+<body>
+模板方法模式是一种只需要使用继承就可以实现的非常简单的模式 <br>
+模板方法模式由两部分组成，第一部分是抽象父类，第二部分是具体的实现子类 <br>
+通常在抽象父类中封装了子类的算法框架，包括一些公共方法以及封装子类中所有的执行顺序 <br>
+子类通过继承这个抽象类，也继承了整个算法结构，并且可以选择重写父类的方法 <br>
+</body>
+<script>
+    //将Coffee类和Tea类 抽象成Beverage类
+    var Beverage = function () {
+
+    }
+
+    Beverage.prototype.boilWater = function () {
+        console.log('把水煮沸')
+    }
+    Beverage.prototype.brew = function () {
+        //空方法，应该由子类重写
+    }
+    Beverage.prototype.pourInCup = function () {
+        //空方法，应该由子类重写
+    }
+    Beverage.prototype.addCondiments = function () {
+        //空方法，应该由子类重写
+    }
+    Beverage.prototype.init = function () {
+        this.boilWater()
+        this.brew()
+        this.pourInCup()
+        this.addCondiments()
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>组合模式</title>
+</head>
+<body>
+组合模式就是用小的子对象来构造更大的对象 <br>
+部分-整体 的层次结构 <br>
+</body>
+<script>
+    var closeDoorCommand = {
+        execute: function () {
+            console.log('关门')
+        }
+    }
+    var openPcCommand = {
+        execute: function () {
+            console.log('开电脑')
+        }
+    }
+    var openQQCommand = {
+        execute: function () {
+            console.log('登录QQ')
+        }
+    }
+
+    var MacroCommand = function () {
+        return {
+            commandsList: [],
+            add: function (command) {
+                this.commandsList.push(command)
+            },
+            execute: function () {
+                for (var i = 0, command; command = this.commandsList[i]; i++) {
+                    command.execute()
+                }
+            }
+        }
+    }
+
+    var macroCommand = MacroCommand()
+
+    macroCommand.add(closeDoorCommand)
+    macroCommand.add(openPcCommand)
+    macroCommand.add(openQQCommand)
+
+    macroCommand.execute()
+
+  //其中macroCommand被称为组合对象，只负责传递请求给叶对象
+</script>
+</html>
