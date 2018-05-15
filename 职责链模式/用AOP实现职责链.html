@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>用AOP实现职责链</title>
+</head>
+<body>
+
+</body>
+<script>
+    //利用js的函数型特性,用一种更加方便的方法来创建职责链
+    Function.prototype.after = function (fn) {
+        var self = this
+        return function () {
+            var ret = self.apply(this, arguments)
+            if (ret === 'nextSuccessor') {
+                return fn.apply(this, arguments)
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>享元模式</title>
+</head>
+<body>
+享元模式(flyweight)是一种用于性能优化的模式，‘fly’在这里是苍蝇的意思，意为蝇量级 <br>
+享元模式的核心是运用共享技术来有效支持大量细粒度的对象 <br>
+一般来说，以下的情况发生时可以使用享元模式 <br>
+一个程序中使用了大量的相似的对象 <br>
+由于使用了大量的对象，造成了很大的内存开销 <br>
+对象的大多数态都可以变为外部状态 <br>
+剥离出对象的外部状态之后，可以用相对较少的共享对象取代大量对象 <br>
+</body>
+<script>
+    var Model = function (sex) {
+        this.sex = sex
+    }
+    Model.prototype.takePhoto = function () {
+        console.log('sex=' + this.sex + ' underwear=' + this.underwear)
+    }
+    //只需要创建一个男模特对象和一个女模特对象
+    var maleModel = new Model('male'),
+        femaleModel = new Model('female')
+    //给男模特依次穿上所有男装，并进行拍照
+    for (var i = 1; i <= 50; i++) {
+        maleModel.underwear = 'underwear' + i
+        maleModel.takePhoto()
+    }
+    //给女模特依次穿上所有的女装，并进行拍照
+    for (var j = 1; j <= 50; j++) {
+        femaleModel.underwear = 'underwear' + j
+        femaleModel.takePhoto()
+    }
+
+</script>
+</html>

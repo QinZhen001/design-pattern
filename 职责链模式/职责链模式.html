@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>职责链模式</title>
+</head>
+<body>
+使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止 <br>
+最大优点：请求发送者只需要知道链中的第一个节点，从而弱化了发送者和一组接收者之间的强联系 <br>
+
+</body>
+<script>
+    // 500元订单
+    var order500 = function (orderType, pay, stock) {
+        if (orderType === 1 && pay === true) {
+            console.log('500元定金预定，得到100元优惠卷')
+        } else {
+            // order200和order500耦合在一起了
+            order200(orderType, pay, stock)
+        }
+    }
+    //200元订单
+    var order200 = function (orderType, pay, stock) {
+        if (orderType === 2 && pay === true) {
+            console.log('200元定金预定，得到50元优惠卷')
+        } else {
+            orderNormal(orderType, pay, stock)
+        }
+    }
+    //普通的购买订单
+    var orderNormal = function (orderType, pay, stock) {
+        if (stock > 0) {
+            console.log('普通购买，无优惠卷');
+        } else {
+            console.log('手机库存不足');
+        }
+    }
+
+
+    order500( 1 , true, 500);
+    order500( 3, false, 500 );
+    order500( 3, false, 0 );
+
+    //但可以看到，请求在链条传递中的顺序非常僵硬，传递请求的代码被耦合在了业务函数之中
+
+    //这显然是违反开放-封闭原则的，如果有我们要加 300元预定或者去掉200元预定，意味着就必须改动这些业务函数内部。
+
+
+
+</script>
+</html>
