@@ -18,5 +18,41 @@
             }
         }
     }
+
+
+    // 500元订单
+    var order500 = function (orderType, pay, stock) {
+        if (orderType === 1 && pay === true) {
+            console.log('500元定金预定，得到100元优惠卷')
+        } else {
+            //我不知道下一个节点是谁，反正把请求往后传递
+            return 'nextSuccessor'
+        }
+    }
+    //200元订单
+    var order200 = function (orderType, pay, stock) {
+        if (orderType === 2 && pay === true) {
+            console.log('200元定金预定，得到50元优惠卷')
+        } else {
+            //我不知道下一个节点是谁，反正把请求往后传递
+            return 'nextSuccessor'
+        }
+    }
+    //普通的购买订单
+    var orderNormal = function (orderType, pay, stock) {
+        if (stock > 0) {
+            console.log('普通购买，无优惠卷');
+        } else {
+            console.log('手机库存不足');
+        }
+    }
+
+
+    var order = order500.after(order200).after(orderNormal)
+
+
+    order(1, true, 500)
+    order(2, true, 500)
+    order(1, false, 500)
 </script>
 </html>
