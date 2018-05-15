@@ -6,6 +6,7 @@
 </head>
 <body>
 中介者模式的作用就是解除对象与对象之间的紧耦合关系 <br>
+以中介者和对象之间的一对多关系取代了对死昂之间的网状多对多关系 <br>
 </body>
 <script>
     function Player(name, teamColor) {
@@ -25,6 +26,7 @@
         playerDirector.receiveMessage('playerDead', this)
     }
     Player.prototype.remove = function () {
+        console.log(this.name + ' remove ')
         //给中介者发送消息，移除一个玩家
         playerDirector.receiveMessage('removePlayer', this)
     }
@@ -71,8 +73,6 @@
         operations.playerDead = function (player) {
             var teamColor = player.teamColor,
                 teamPlayers = players[teamColor] || []
-
-
 
 
             var all_dead = true
@@ -133,8 +133,8 @@
         player7 = playerFactory('胖墩', 'blue'),
         player8 = playerFactory('海盗', 'blue');
 
-    player1.die();
-    player2.die();
+    player1.changeTeam('blue');
+    player2.remove();
     player3.die();
     player4.die();
 

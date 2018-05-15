@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>装饰器模式</title>
+</head>
+<body>
+给对象动态地增加职责的方式称为装饰器(decorator)模式 <br>
+装饰器模式能够在不改变对象自身的基础上，在程序运行期间给对象动态地添加职责 <br>
+跟继承相比，这是一种更轻便灵活的做法，这是一种‘即用即付’的方式 <br>
+装饰器其实也是一种包装器(wrapper) <br>
+</body>
+<script>
+    //  js作为一门解释执行的语言，给js中的对象动态添加或者改变职责是一件再简单不过的事情
+
+    var obj = {
+        name: 'sven',
+        address: '深圳市'
+    };
+
+    obj.address = obj.address + '福田区';
+</script>
+
+
+<script>
+    var Plane = function () {
+
+    }
+    Plane.prototype.fire = function () {
+        console.log('发射普通子弹')
+    }
+    //接下来增加两个装饰类，分别是导弹和原子弹
+    var MissileDecorator = function (plane) {
+        this.plane = plane
+    }
+    MissileDecorator.prototype.fire = function () {
+        this.plane.fire()
+        console.log('发射导弹')
+    }
+
+    var AtomDecorator = function (plane) {
+        this.plane = plane;
+    }
+
+    AtomDecorator.prototype.fire = function () {
+        this.plane.fire();
+        console.log('发射原子弹');
+    }
+    //这种给对象动态增加职责的方式，并没有真正地改动对象自身，
+    //而是将对象放入另一个对象之中，这些对象以一条链的方式进行引用，形成一个聚合对象
+
+
+    var plane = new Plane()
+    plane = new MissileDecorator(plane)
+    plane = new AtomDecorator(plane)
+
+    plane.fire()
+</script>
+</html>
