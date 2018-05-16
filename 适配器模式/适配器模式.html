@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>适配器模式</title>
+</head>
+<body>
+适配器模式的作用是解决两个软件实体间的不兼容的问题。使用适配器模式之后，原本由于接口不兼容而不能工作的两个软件实体可以一起工作。 <br>
+适配器模式是一种‘亡羊补牢’的模式 <br>
+</body>
+<script>
+    var googleMap = {
+        show: function () {
+            console.log('开始渲染谷歌地图')
+        }
+    }
+    var baiduMap = {
+        display: function () {
+            console.log('开始渲染百度地图')
+        }
+    }
+    var baiduMapAdapter = {
+        show: function () {
+            return baiduMap.display()
+        }
+    }
+
+    var renderMap = function (map) {
+        if (map.show instanceof Function) {
+            map.show()
+        }
+    }
+
+    renderMap(googleMap)
+    renderMap(baiduMapAdapter)
+</script>
+</html>
