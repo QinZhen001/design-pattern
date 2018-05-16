@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>解决装饰函数出现的问题</title>
+</head>
+<body>
+<button id="btn">测试按钮</button>
+</body>
+<script>
+    var _getElementById = document.getElementById
+
+    document.getElementById = function (id) {
+        console.log('1')
+        //手动把document当作上下文this传入
+        return _getElementById.apply(document,arguments)
+    }
+
+    var button = document.getElementById('btn')
+
+
+</script>
+
+
+
+
+
+</html>

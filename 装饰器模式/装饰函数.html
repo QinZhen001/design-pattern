@@ -5,6 +5,19 @@
   <title>装饰函数</title>
 </head>
 <body>
-在不改变函数源代码
+在不改变函数源代码下，能给函数增加功能，这也正是符合开放-封闭原则 <br>
 </body>
+<script>
+    //  通过保存原引用的方式就可以改写某个函数
+    var a = function () {
+        console.log('1')
+    }
+    var _a = a
+    a = function () {
+        _a()
+        console.log('2')
+    }
+
+    a()
+</script>
 </html>

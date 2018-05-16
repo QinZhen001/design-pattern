@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>装饰函数出现的问题</title>
+</head>
+<body>
+装饰函数有的时候会出现this被劫持的问题 <br>
+<button id="btn">测试按钮</button>
+</body>
+<script>
+    var _getElementById = document.getElementById
+
+    document.getElementById = function (id) {
+        console.log('1')
+        return _getElementById(id)
+    }
+
+    var button = document.getElementById('btn')
+
+    //报错
+    //Uncaught TypeError: Illegal invocation at HTMLDocument.document.getElementById
+    //因为getElementById里面的_getElementById的this是指向document，而不是window
+</script>
+
+
+
+
+
+</html>
