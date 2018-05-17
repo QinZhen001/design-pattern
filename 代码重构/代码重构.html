@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>代码重构</title>
+</head>
+<body>
+<h3>提炼函数</h3>
+避免出现超大的函数 <br>
+独立出来的函数有助于代码复用 <br>
+独立出来的函数更容易被覆写 <br>
+独立出来的函数如果拥有一个良好的命名，它本身就起到了注释的作用 <br>
+
+<h3>合并重复的片段</h3>
+<h3>把条件分支语句提炼成函数</h3>
+<h3>合理使用循环</h3>
+<h3>提前让函数退出代替嵌套条件分支</h3>
+<h3>传递对象参数代替过长的参数列表</h3>
+</body>
+
+<script>
+    //    提前让函数退出代替嵌套条件分支
+    var del = function (obj) {
+        var ret
+        if (!obj.isReadOnly) {
+            if (obj.isFolder) {
+                ret = deleteFolder(obj)
+            } else if (obj.isFile) {
+                ret = deleteFile(obj)
+            }
+        }
+        return ret
+    }
+    // Orz
+    // 嵌套的条件分支往往是由一些深信“每个函数只能有一个出口的”程序员写出的
+
+
+    //我们可以挑选一些条件分支，在进入这些条件分支之后，就立即让这个函数退出
+    //重构后的del函数
+
+    var del = function (obj) {
+        //反转if表达式
+        if (obj.isReadOnly) {
+            return
+        }
+        if (obj.isFolder) {
+            return deleteFolder(obj)
+        }
+
+        if (obj.isFile) {
+            return deleteFile(obj)
+        }
+    }
+
+</script>
+</html>
