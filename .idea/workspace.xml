@@ -102,8 +102,8 @@
       <file leaf-file-name="代码重构.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/代码重构/代码重构.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="81">
+              <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -172,7 +172,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="951" />
+    <option name="x" value="691" />
     <option name="y" value="10" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -336,15 +336,15 @@
       <workItem from="1526355550118" duration="18261000" />
       <workItem from="1526440251484" duration="6845000" />
       <workItem from="1526459792476" duration="4982000" />
-      <workItem from="1526565661240" duration="3958000" />
+      <workItem from="1526565661240" duration="4620000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52283000" />
+    <option name="totallyTimeSpent" value="52945000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="951" y="10" width="974" height="1047" extended-state="0" />
+    <frame x="691" y="10" width="974" height="1047" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17628205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -736,8 +736,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/代码重构/代码重构.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="81">
+          <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
           <folding />
         </state>
       </provider>

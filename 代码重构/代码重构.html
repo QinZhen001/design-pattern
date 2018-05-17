@@ -16,6 +16,11 @@
 <h3>合理使用循环</h3>
 <h3>提前让函数退出代替嵌套条件分支</h3>
 <h3>传递对象参数代替过长的参数列表</h3>
+<h3>尽量减少参数数量</h3>
+<h3>少用三目运算符</h3>
+<h3>合理利用链式调用</h3>
+<h3>分解大型类</h3>
+<h3>用return退出多重循环</h3>
 </body>
 
 <script>
@@ -51,6 +56,26 @@
             return deleteFile(obj)
         }
     }
+</script>
 
+<script>
+    //传递对象参数代替过长的参数列表
+    var setUserInfo = function (obj) {
+        console.log('id= ' + obj.id);
+        console.log('name= ' + obj.name);
+        console.log('address= ' + obj.address);
+        console.log('sex= ' + obj.sex);
+        console.log('mobile= ' + obj.mobile);
+        console.log('qq= ' + obj.qq);
+    };
+
+    setUserInfo({
+        id: 1314,
+        name: 'sven',
+        address: 'shenzhen',
+        sex: 'male',
+        mobile: '137********',
+        qq: 377876679
+    });
 </script>
 </html>
