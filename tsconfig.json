@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+      "module": "commonjs",
+      "noImplicitAny": false,
+      "outDir": "built/",
+      "sourceMap": true,
+      "target": "es5"
+  }
+}

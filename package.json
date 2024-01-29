@@ -1,0 +1,11 @@
+{
+  "name": "design-pattern",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/QinZhen001/design-pattern.git",
+  "author": "qinzhen <qz519189636@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "esno": "^4.0.0"
+  }
+}
